@@ -1,12 +1,17 @@
-name: 'Container Action Template'
-description: 'Get started with Container actions'
-author: 'GitHub'
+name: 'Cargo JUnit Transformer'
+description: 'Transform cargo test output to junit format'
+author: 'King.Li'
 inputs: 
-  myInput:
-    description: 'Input to use'
-    default: 'world'
+  inputFile:
+    description: 'File containing cargo test output'
+    required: true
+  outputFile:
+    description: 'File containing junit output'
+    default: 'junit.xml'
+    required: false
 runs:
   using: 'docker'
   image: 'Dockerfile'
   args:
-    - ${{ inputs.myInput }}
+    - ${{ inputs.inputFile }}
+    - ${{ inputs.outputFile }}

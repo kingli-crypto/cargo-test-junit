@@ -1,7 +1,9 @@
-FROM alpine:3.10
+FROM python:3.10
 
 COPY LICENSE README.md /
+WORKDIR /app
 
-COPY entrypoint.sh /entrypoint.sh
+ADD src/ . 
+ADD entrypoint.sh /entrypoint.sh
 
 ENTRYPOINT ["/entrypoint.sh"]
