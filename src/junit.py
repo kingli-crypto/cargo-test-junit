@@ -2,6 +2,7 @@
 import fileinput
 import re
 import sys
+import html
 
 ##########################################################################################
 def match_all_tests(test_input):
@@ -14,7 +15,7 @@ def discover_output(test_input, name):
 ##########################################################################################
 def junit_failure(details):
     type_failure, details = details
-    return f"""<failure type="{type_failure}">\n{details}</failure>"""
+    return f"""<failure type="{type_failure}">\n{html.escape(details)}</failure>"""
 
 def junit_line(entry):
     name, result, details = entry
