@@ -1,9 +1,9 @@
-FROM python:3.10
+FROM python:3.10-rc
 
 COPY LICENSE README.md /
 WORKDIR /app
 
-ADD src/ . 
+ADD src/ src
 ADD entrypoint.sh /entrypoint.sh
 
 ENTRYPOINT ["/entrypoint.sh"]
